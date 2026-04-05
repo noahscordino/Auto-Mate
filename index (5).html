@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto-Mate Consulting — Marketing & Sales Systems for NZ Small Business</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --white: #ffffff;
+      --off: #f7f7f5;
+      --light: #efefeb;
+      --border: #e2e2dc;
+      --ink: #141414;
+      --mid: #6b6b65;
+      --accent: #1a6b4a;
+      --accent-light: #e8f5ee;
+      --accent-hover: #155c3e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 5vw;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--ink);
+      color: var(--white) !important;
+      padding: 0.5rem 1.3rem;
+      border-radius: 6px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; }
+    .nav-mobile-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 5vw 80px;
+      background: var(--off);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,107,74,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 760px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 1.8rem;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      color: var(--ink);
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--mid);
+      max-width: 540px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-dark {
+      background: var(--ink);
+      color: var(--white);
+    }
+    .btn-dark:hover { background: var(--accent); }
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--ink); background: var(--white); }
+    .hero-social-proof {
+      margin-top: 3.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--mid);
+    }
+    .proof-avatars {
+      display: flex;
+    }
+    .proof-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--white);
+      margin-left: -8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .proof-avatar:first-child { margin-left: 0; }
+    .proof-avatar:nth-child(1) { background: #2d6a4f; }
+    .proof-avatar:nth-child(2) { background: #40916c; }
+    .proof-avatar:nth-child(3) { background: #52b788; }
+
+    /* ===== SECTION SHARED ===== */
+    section { padding: 6rem 5vw; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1rem;
+      color: var(--mid);
+      max-width: 520px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ===== PROBLEM ===== */
+    .problem {
+      background: var(--ink);
+      color: var(--white);
+    }
+    .problem .section-label { color: #52b788; }
+    .problem .section-title { color: var(--white); }
+    .problem .section-sub { color: rgba(255,255,255,0.55); max-width: 100%; }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .problem-points {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+    .problem-point {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .point-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 0.65rem;
+    }
+    .point-text {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+    .point-text strong { color: var(--white); font-weight: 500; }
+    .problem-cta-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+    .problem-cta-box p {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.4rem;
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    .problem-cta-box p em { color: #52b788; font-style: italic; }
+
+    /* ===== SERVICES ===== */
+    .services { background: var(--white); }
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .service-card {
+      padding: 2rem;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      transition: background 0.2s;
+      position: relative;
+    }
+    .service-card:hover { background: var(--off); }
+    .service-card.featured {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+    .service-card.featured:hover { background: var(--accent-hover); }
+    .service-num {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .service-card.featured .service-num { color: rgba(255,255,255,0.3); }
+    .service-name {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+    }
+    .service-desc {
+      font-size: 0.85rem;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+    .service-card.featured .service-desc { color: rgba(255,255,255,0.75); }
+    .service-tag {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .service-card.featured .service-tag {
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+    }
+
+    /* ===== PACKAGES ===== */
+    .packages { background: var(--off); }
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .package-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      position: relative;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .package-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-3px); }
+    .package-card.popular {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .package-name {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    .package-price {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin: 0.8rem 0 0.3rem;
+    }
+    .package-price span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      color: var(--mid);
+      font-weight: 300;
+    }
+    .package-desc {
+      font-size: 0.83rem;
+      color: var(--mid);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .package-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: 1.8rem;
+    }
+    .package-features li {
+      font-size: 0.85rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+      line-height: 1.5;
+    }
+    .package-features li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .pkg-btn {
+      width: 100%;
+      text-align: center;
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: block;
+      border: 1.5px solid var(--border);
+      color: var(--ink);
+      background: var(--white);
+    }
+    .pkg-btn:hover { border-color: var(--ink); }
+    .pkg-btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--white);
+    }
+    .pkg-btn.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+
+    /* ===== PROCESS ===== */
+    .process { background: var(--white); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 3rem;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .process-step {
+      padding: 2rem 1.8rem;
+      border-right: 1.5px solid var(--border);
+      position: relative;
+    }
+    .process-step:last-child { border-right: none; }
+    .step-num {
+      font-family: 'Instrument Serif', serif;
+      font-size: 3rem;
+      color: var(--light);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .step-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    .step-desc {
+      font-size: 0.83rem;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    /* ===== AUTOMATIONS TABLE ===== */
+    .automations { background: var(--off); }
+    .auto-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2.5rem;
+      font-size: 0.88rem;
+    }
+    .auto-table th {
+      text-align: left;
+      padding: 0.9rem 1.2rem;
+      background: var(--ink);
+      color: var(--white);
+      font-weight: 500;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .auto-table th:first-child { border-radius: 8px 0 0 0; }
+    .auto-table th:last-child { border-radius: 0 8px 0 0; }
+    .auto-table td {
+      padding: 0.9rem 1.2rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .auto-table tr:last-child td { border-bottom: none; }
+    .auto-table tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+    .auto-table tr:last-child td:last-child { border-radius: 0 0 8px 0; }
+    .auto-table tr:hover td { background: var(--off); }
+    .auto-name { font-weight: 500; color: var(--ink); }
+    .auto-price { font-weight: 600; color: var(--accent); white-space: nowrap; }
+    .auto-time { color: var(--mid); white-space: nowrap; }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials { background: var(--white); }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .testi-card {
+      background: var(--off);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+    }
+    .testi-stars {
+      color: var(--accent);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+    .testi-quote {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+    }
+    .testi-author {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .testi-role {
+      font-size: 0.78rem;
+      color: var(--mid);
+      margin-top: 2px;
+    }
+    .testi-placeholder {
+      font-size: 0.75rem;
+      color: var(--mid);
+      font-style: italic;
+      margin-top: 0.5rem;
+      opacity: 0.6;
+    }
+
+    /* ===== CONTACT / CTA ===== */
+    .contact {
+      background: var(--ink);
+      color: var(--white);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contact .section-label { color: #52b788; }
+    .contact .section-title { color: var(--white); }
+    .contact .section-sub { color: rgba(255,255,255,0.55); }
+    .contact-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .contact-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 1.4rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--white);
+      transition: background 0.2s, border-color 0.2s;
+      cursor: pointer;
+    }
+    .contact-option:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.2);
+    }
+    .contact-option-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-option-text strong {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .contact-option-text span {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .contact-option-arrow {
+      margin-left: auto;
+      color: rgba(255,255,255,0.3);
+      font-size: 1rem;
+    }
+    .email-form {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+    .email-form h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .email-form p {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+    }
+    .form-input {
+      width: 100%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.25); }
+    .form-input:focus { border-color: #52b788; }
+    .form-select {
+      width: 100%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+    }
+    .form-select option { background: #1a1a1a; color: var(--white); }
+    .form-btn {
+      width: 100%;
+      background: #52b788;
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+    .form-btn:hover { background: #40916c; color: var(--white); }
+    .form-note {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      margin-top: 0.8rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0d0d0d;
+      padding: 2rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+    .footer-logo span { color: #52b788; }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.hidden {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 960px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .packages-grid { grid-template-columns: 1fr; max-width: 440px; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .process-step:nth-child(2) { border-right: none; }
+      .process-step:nth-child(1), .process-step:nth-child(2) { border-bottom: 1.5px solid var(--border); }
+      .testi-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .problem-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-mobile-btn { display: block; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .process-step { border-right: none; border-bottom: 1.5px solid var(--border); }
+      .process-step:last-child { border-bottom: none; }
+      .auto-table { font-size: 0.8rem; }
+      .auto-table td, .auto-table th { padding: 0.7rem 0.8rem; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Auto-<span>Mate</span> Consulting</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#contact" class="nav-cta">Book a Free Discovery Call</a></li>
+  </ul>
+  <button class="nav-mobile-btn" aria-label="Menu">
+    <svg width="22" height="16" viewBox="0 0 22 16" fill="none"><rect width="22" height="2" rx="1" fill="#141414"/><rect y="7" width="22" height="2" rx="1" fill="#141414"/><rect y="14" width="16" height="2" rx="1" fill="#141414"/></svg>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">NZ-based marketing & sales systems consultant</div>
+    <h1>Stop losing leads.<br>Start filling your <em>calendar.</em></h1>
+    <p class="hero-sub">
+      I help NZ service businesses build marketing and sales systems that automatically follow up leads, reduce no-shows, and book more clients — without lifting a finger.
+    </p>
+    <div class="hero-btns">
+      <a href="https://calendly.com/noahscordino/30min" target="_blank" class="btn btn-dark">Book a Free Discovery Call →</a>
+      <a href="#services" class="btn btn-outline">See What I Do</a>
+    </div>
+    <div class="hero-social-proof">
+      <div class="proof-avatars">
+        <div class="proof-avatar">JK</div>
+        <div class="proof-avatar">SR</div>
+        <div class="proof-avatar">MT</div>
+      </div>
+      <span>Trusted by local NZ businesses — <strong>add your testimonial here</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="about">
+  <div class="problem-grid">
+    <div class="reveal">
+      <p class="section-label">Sound familiar?</p>
+      <h2 class="section-title">You're great at your job.<br>The follow-up is killing you.</h2>
+      <p class="section-sub">Most small business owners lose 30–50% of potential clients not because of their service — but because of slow follow-up, missed calls, and no systems.</p>
+      <div class="problem-points">
+        <div class="problem-point">
+          <div class="point-icon">✗</div>
+          <p class="point-text"><strong>Leads go cold</strong> because no one follows up within the hour</p>
+        </div>
+        <div class="problem-point">
+          <div class="point-icon">✗</div>
+          <p class="point-text"><strong>No-shows cost you money</strong> every single week</p>
+        </div>
+        <div class="problem-point">
+          <div class="point-icon">✗</div>
+          <p class="point-text"><strong>Happy clients disappear</strong> because no one asks them to rebook</p>
+        </div>
+        <div class="problem-point">
+          <div class="point-icon">✗</div>
+          <p class="point-text"><strong>You're doing everything manually</strong> when it could all be automatic</p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="problem-cta-box">
+        <p>What if your business followed up every lead, confirmed every booking, and asked for reviews — <em>automatically?</em></p>
+        <a href="https://calendly.com/noahscordino/30min" target="_blank" class="btn btn-dark" style="display:inline-block;">Book a Free Discovery Call →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header reveal">
+    <div>
+      <p class="section-label">What I Do</p>
+      <h2 class="section-title">Simple systems,<br>real results.</h2>
+    </div>
+    <p class="section-sub" style="max-width:340px;">Marketing and sales systems consulting — built, tested, and handed over. No tech knowledge needed to run it.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <p class="service-name">Booking System Setup</p>
+      <p class="service-desc">Calendly or Acuity configured and connected to your site or link-in-bio. Clients self-book without any back-and-forth.</p>
+      <span class="service-tag">One-time</span>
+    </div>
+    <div class="service-card featured">
+      <div class="service-num">02</div>
+      <p class="service-name">Email Automation Sequences</p>
+      <p class="service-desc">Lead nurture, appointment reminders, no-show follow-ups, and review requests — all running automatically.</p>
+      <span class="service-tag">Most Popular</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <p class="service-name">CRM Setup & Organisation</p>
+      <p class="service-desc">Get your leads out of sticky notes and spreadsheets. Simple HubSpot setup so nothing falls through the cracks.</p>
+      <span class="service-tag">One-time</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <p class="service-name">Missed Call SMS Response</p>
+      <p class="service-desc">Missed a call? An instant automated SMS fires to the caller with your booking link before they ring your competitor.</p>
+      <span class="service-tag">Quick win</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <p class="service-name">Full Lead-to-Booking Pipeline</p>
+      <p class="service-desc">End-to-end system build. Enquiry → CRM → nurture sequence → booking → reminders → follow-up. All connected.</p>
+      <span class="service-tag">Premium</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <p class="service-name">Monthly Maintenance</p>
+      <p class="service-desc">I monitor your automations monthly, fix anything that breaks, and optimise based on what's working.</p>
+      <span class="service-tag">Retainer</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="reveal">
+    <p class="section-label">How It Works</p>
+    <h2 class="section-title">Up and running in days,<br>not months.</h2>
+  </div>
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <p class="step-title">Free Discovery Call</p>
+      <p class="step-desc">We jump on a 30-min call. I learn about your business and identify exactly where leads are falling through the cracks.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <p class="step-title">Custom Proposal</p>
+      <p class="step-desc">I send you a clear scope of what I'll build, how long it'll take, and what it costs. No jargon, no surprises.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <p class="step-title">I Build It</p>
+      <p class="step-desc">I set everything up, test it end-to-end, and make sure every automation is firing correctly before handing over.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <p class="step-title">Handover & Done</p>
+      <p class="step-desc">You get a walkthrough call, a simple guide, and everything runs on autopilot. Ongoing support available if needed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Let's fix your<br>follow-up.</h2>
+      <p class="section-sub">Book a free 30-min discovery call and I'll show you exactly where your business is losing leads — and how to fix it.</p>
+      <div class="contact-options">
+        <a href="https://calendly.com/noahscordino/30min" target="_blank" class="contact-option">
+          <div class="contact-option-icon">📅</div>
+          <div class="contact-option-text">
+            <strong>Book a Free Discovery Call</strong>
+            <span>30 mins via Calendly — pick a time that suits</span>
+          </div>
+          <div class="contact-option-arrow">→</div>
+        </a>
+        <a href="mailto:automateconsultingnz@gmail.com" class="contact-option">
+          <div class="contact-option-icon">✉️</div>
+          <div class="contact-option-text">
+            <strong>Send an Email</strong>
+            <span>automateconsultingnz@gmail.com</span>
+          </div>
+          <div class="contact-option-arrow">→</div>
+        </a>
+        <a href="tel:+64223225100" class="contact-option">
+          <div class="contact-option-icon">📞</div>
+          <div class="contact-option-text">
+            <strong>Call or Text</strong>
+            <span>022 322 5100 — happy to chat</span>
+          </div>
+          <div class="contact-option-arrow">→</div>
+        </a>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div style="background:#fff; border-radius:12px; padding: 2rem;">
+        <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.95rem; font-weight:600; color:#141414; margin-bottom:0.3rem;">Send a quick enquiry</p>
+        <p style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.82rem; color:#6b6b65; margin-bottom:1.2rem;">I'll get back to you within 24 hours.</p>
+        <iframe src="https://tally.so/r/QKYRz8" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Contact Noah — Auto-Mate Consulting" style="border:none; border-radius:8px;"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Auto-<span>Mate</span> Consulting</div>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="mailto:automateconsultingnz@gmail.com">Email</a></li>
+    <li><a href="tel:+64223225100">022 322 5100</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Auto-Mate Consulting. NZ-based marketing & sales systems.</p>
+</footer>
+
+<script>
+  // Scroll reveal — content visible by default, animation is enhancement
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    reveals.forEach(el => el.classList.add('hidden'));
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('hidden');
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  }
+
+  // Form submit handler
+  function handleSubmit(btn) {
+    const form = btn.closest('.email-form');
+    const inputs = form.querySelectorAll('.form-input, .form-select');
+    let filled = true;
+    inputs.forEach(i => { if (!i.value.trim()) filled = false; });
+    if (!filled) {
+      btn.textContent = 'Please fill in all fields';
+      btn.style.background = '#c0392b';
+      btn.style.color = 'white';
+      setTimeout(() => {
+        btn.textContent = 'Send Enquiry →';
+        btn.style.background = '';
+        btn.style.color = '';
+      }, 2000);
+      return;
+    }
+    const name = form.querySelectorAll('.form-input')[0].value;
+    const email = form.querySelectorAll('.form-input')[1].value;
+    const type = form.querySelector('.form-select').value;
+    const challenge = form.querySelectorAll('.form-input')[2].value;
+    const subject = encodeURIComponent('New enquiry from ' + name);
+    const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nBusiness type: ' + type + '\nBiggest challenge: ' + challenge);
+    window.location.href = 'mailto:automateconsultingnz@gmail.com?subject=' + subject + '&body=' + body;
+    btn.textContent = '✓ Opening your email app...';
+    btn.style.background = '#40916c';
+    btn.style.color = 'white';
+    btn.disabled = true;
+  }
+
+  // Smooth nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
